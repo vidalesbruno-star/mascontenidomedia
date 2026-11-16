@@ -38,7 +38,7 @@
       overflow-x: hidden;
     }
 
-    /* Sutil textura y brillo radial estilo Polar.sh */
+    /* Textura de cuadrícula minimalista estilo Polar.sh */
     .polar-grid-bg {
       background-size: 64px 64px;
       background-image: 
@@ -56,10 +56,6 @@
       border-color: #3A3A42;
     }
 
-    .polar-glow {
-      background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.045), transparent 40%);
-    }
-
     /* Animación suave para el gráfico radial geométrico */
     @keyframes spinSlow {
       from { transform: rotate(0deg); }
@@ -68,15 +64,6 @@
     .animate-spin-slow {
       animation: spinSlow 90s linear infinite;
       transform-origin: center;
-    }
-
-    /* Ocultar scrollbar en carrusel horizontal móvil */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
     }
   </style>
 </head>
@@ -112,7 +99,6 @@
 
   <!-- ==================== HERO SECTION ==================== -->
   <section class="relative pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-borderSubtle polar-grid-bg overflow-hidden">
-    <!-- Resplandor superior sutil -->
     <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-white/[0.035] blur-[120px] rounded-full"></div>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
@@ -164,7 +150,6 @@
         <!-- Columna Derecha: Arte Radial Geométrico + Card de Flujo estilo Polar -->
         <div class="lg:col-span-5">
           <div class="polar-card rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-            <!-- SVG Radial Geométrico inspirado en Polar.sh -->
             <div class="flex justify-center items-center py-4 relative">
               <svg class="w-64 h-64 sm:w-72 sm:h-72 text-zinc-400 animate-spin-slow" viewBox="0 0 300 300" fill="none">
                 <g stroke="currentColor" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="3 5">
@@ -191,7 +176,6 @@
                 </defs>
               </svg>
 
-              <!-- Núcleo central -->
               <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div class="px-4 py-2.5 rounded-xl bg-obsidian/95 border border-zinc-700/80 shadow-2xl text-center">
                   <div class="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">Motor de Crecimiento</div>
@@ -200,7 +184,6 @@
               </div>
             </div>
 
-            <!-- Mini tarjetas de estado estilo dashboard Polar -->
             <div class="mt-4 space-y-2.5 border-t border-borderSubtle pt-5">
               <div class="flex items-center justify-between text-xs p-2.5 rounded-lg bg-obsidian border border-borderSubtle">
                 <span class="text-zinc-400 font-mono">01. Testeo de Ángulos</span>
@@ -237,9 +220,7 @@
         </p>
       </div>
 
-      <!-- Grid de 3 pilares estilo Polar -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
         <!-- Pilar 1 -->
         <div class="polar-card rounded-2xl p-7 flex flex-col justify-between">
           <div>
@@ -296,7 +277,6 @@
             ENFOQUE: IDENTIDAD & AUTORIDAD REAL
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -317,9 +297,7 @@
       </div>
 
       <!-- Grid de 5 Videos Verticales (9:16) de MasInnovaciones -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5" id="reels-grid">
-        <!-- Se renderizan dinámicamente con JS para permitir vista previa y reproducción de video local -->
-      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5" id="reels-grid"></div>
 
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl border border-borderSubtle bg-surface/60 text-xs text-zinc-400">
         <div class="flex items-center gap-2.5">
@@ -666,14 +644,8 @@
 
   <!-- ==================== LÓGICA INTERACTIVA & CONFIGURACIÓN DE WHATSAPP ==================== -->
   <script>
-    /**
-     * ============================================================================
-     * CONFIGURACIÓN DE TU NÚMERO DE WHATSAPP DIRECTO
-     * ============================================================================
-     * Reemplaza el número de abajo con tu número real incluyendo código de país,
-     * sin el símbolo "+" ni espacios. Ejemplo México: "5214441234567"
-     */
-    const WHATSAPP_NUMBER = "5214440000000";
+    // Número de WhatsApp directo configurado
+    const WHATSAPP_NUMBER = "524445544111";
 
     // Datos de los 5 videos de ejemplo de @masinnovaciones
     const REEL_EXAMPLES = [
@@ -754,30 +726,33 @@
       }
     ];
 
-    // Renderizar tarjetas de Reels
+    // Renderizar tarjetas de Reels con controles rápidos de audio y vista completa
     function renderReelsGrid() {
       const grid = document.getElementById('reels-grid');
+      if (!grid) return;
       grid.innerHTML = REEL_EXAMPLES.map((reel, idx) => `
         <div onclick="openReelModal(${idx})" class="group cursor-pointer rounded-2xl border border-borderSubtle bg-obsidian overflow-hidden hover:border-zinc-500 transition-all flex flex-col">
           <!-- Marco Vertical 9:16 -->
           <div class="relative aspect-[9/16] w-full bg-gradient-to-b ${reel.accent} p-4 flex flex-col justify-between overflow-hidden">
-            <!-- Video silencioso en loop si el archivo está presente -->
-            <video src="${reel.file}" muted loop playsinline preload="metadata"
-              onloadeddata="this.classList.remove('hidden')"
+            <!-- Video en loop si el archivo está presente en la carpeta -->
+            <video id="card-video-${idx}" src="${reel.file}" autoplay muted loop playsinline preload="metadata"
+              onloadeddata="this.classList.remove('hidden'); document.getElementById('card-quote-${idx}').classList.add('opacity-0', 'group-hover:opacity-100');"
               onerror="this.classList.add('hidden')"
-              class="hidden absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"></video>
+              class="hidden absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"></video>
 
             <!-- Capa de oscurecimiento sutil para legibilidad -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/50 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/55 pointer-events-none"></div>
 
-            <!-- Top bar del reel -->
+            <!-- Top bar del reel + Botón rápido de Sonido -->
             <div class="relative z-10 flex items-center justify-between text-[10px] font-mono text-zinc-300">
-              <span class="px-2 py-0.5 rounded bg-black/60 border border-white/10 backdrop-blur-sm">REEL ${reel.id}</span>
-              <span class="text-zinc-400">@masinnovaciones</span>
+              <span class="px-2 py-0.5 rounded bg-black/65 border border-white/10 backdrop-blur-sm">REEL ${reel.id}</span>
+              <button type="button" onclick="toggleCardMute(event, ${idx})" title="Activar / silenciar audio" class="px-2 py-1 rounded bg-black/70 border border-white/15 text-zinc-200 hover:bg-white hover:text-obsidian transition-colors flex items-center gap-1">
+                <span id="mute-label-${idx}">🔇 Audio</span>
+              </button>
             </div>
 
             <!-- Frase central estilo subtítulo editorial -->
-            <div class="relative z-10 my-auto text-center px-1">
+            <div id="card-quote-${idx}" class="relative z-10 my-auto text-center px-1 transition-opacity duration-300">
               <p class="font-serif italic text-lg sm:text-xl text-white leading-snug drop-shadow">
                 ${reel.quote}
               </p>
@@ -802,8 +777,40 @@
       `).join('');
     }
 
+    // Activar o silenciar sonido directamente en la tarjeta de la galería
+    function toggleCardMute(event, index) {
+      event.stopPropagation();
+      const targetVideo = document.getElementById(`card-video-${index}`);
+      const targetLabel = document.getElementById(`mute-label-${index}`);
+      if (!targetVideo || targetVideo.classList.contains('hidden')) {
+        openReelModal(index);
+        return;
+      }
+
+      const willUnmute = targetVideo.muted;
+      REEL_EXAMPLES.forEach((_, i) => {
+        const v = document.getElementById(`card-video-${i}`);
+        const l = document.getElementById(`mute-label-${i}`);
+        if (v) v.muted = true;
+        if (l) l.textContent = '🔇 Audio';
+      });
+
+      if (willUnmute) {
+        targetVideo.muted = false;
+        targetVideo.play().catch(() => {});
+        if (targetLabel) targetLabel.textContent = '🔊 Sonando';
+      }
+    }
+
     // Modal de inspección de Reel
     function openReelModal(index) {
+      REEL_EXAMPLES.forEach((_, i) => {
+        const v = document.getElementById(`card-video-${i}`);
+        const l = document.getElementById(`mute-label-${i}`);
+        if (v) v.muted = true;
+        if (l) l.textContent = '🔇 Audio';
+      });
+
       const reel = REEL_EXAMPLES[index];
       const modal = document.getElementById('reel-modal');
       const video = document.getElementById('modal-video');
@@ -823,9 +830,9 @@
         </li>
       `).join('');
 
-      // Intentar cargar el video local; si no existe aún en la carpeta, mostrar vista editorial
       fallback.classList.add('hidden');
       video.classList.remove('hidden');
+      video.muted = false;
       video.src = reel.file;
       video.onerror = () => {
         video.classList.add('hidden');
@@ -904,7 +911,6 @@
         document.getElementById('qualified-name').textContent = quizData.name;
         document.getElementById('qualified-ig').textContent = `@${quizData.ig}`;
 
-        // Mensaje prellenado para WhatsApp directo
         const message = [
           `Hola equipo de MasContenido (+INNOVACIONES), acabo de completar mi aplicación.`,
           ``,
@@ -933,10 +939,12 @@
       showStep(1);
     }
 
-    // Inicializar galería al cargar
-    window.addEventListener('DOMContentLoaded', () => {
+    // Inicializar galería
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderReelsGrid);
+    } else {
       renderReelsGrid();
-    });
+    }
   </script>
 </body>
 </html>
