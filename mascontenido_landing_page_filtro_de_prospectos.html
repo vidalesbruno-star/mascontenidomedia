@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>+CONTENIDO | Sistema de Producción & Monetización — MASINNOVACIONES</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            serif: ['Instrument Serif', 'serif'],
+          },
+          colors: {
+            obsidian: '#09090B',
+            surface: '#111113',
+            surfaceElevated: '#16161A',
+            borderSubtle: '#222226',
+            borderHover: '#38383F',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #09090B;
+      color: #F4F4F5;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Sutil textura y brillo radial estilo Polar.sh */
+    .polar-grid-bg {
+      background-size: 64px 64px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    .polar-card {
+      background: linear-gradient(180deg, #131316 0%, #0E0E11 100%);
+      border: 1px solid #222226;
+      transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    }
+
+    .polar-card:hover {
+      border-color: #3A3A42;
+    }
+
+    .polar-glow {
+      background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.045), transparent 40%);
+    }
+
+    /* Animación suave para el gráfico radial geométrico */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spinSlow 90s linear infinite;
+      transform-origin: center;
+    }
+
+    /* Ocultar scrollbar en carrusel horizontal móvil */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-zinc-100 selection:bg-white selection:text-obsidian">
+
+  <!-- ==================== NAVBAR MINIMALISTA ESTILO POLAR ==================== -->
+  <header class="sticky top-0 z-40 border-b border-borderSubtle/80 bg-obsidian/85 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-7 h-7 rounded-md bg-white text-obsidian flex items-center justify-center font-mono font-bold text-sm tracking-tighter">
+          +C
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold tracking-tight text-white leading-none">MasContenido</span>
+          <span class="text-[10px] font-mono text-zinc-500 tracking-widest uppercase mt-0.5">by MASINNOVACIONES</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-medium text-zinc-400">
+        <a href="#enfoque" class="hover:text-white transition-colors">01. Enfoque</a>
+        <a href="#ejemplos" class="hover:text-white transition-colors">02. Ejemplos</a>
+        <a href="#sistema" class="hover:text-white transition-colors">03. Proceso</a>
+        <a href="#aplicar" class="hover:text-white transition-colors">04. Aplicar</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#aplicar" class="px-4 py-2 rounded-full bg-white text-obsidian text-xs font-semibold hover:bg-zinc-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.12)]">
+          Aplicar ahora
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-borderSubtle polar-grid-bg overflow-hidden">
+    <!-- Resplandor superior sutil -->
+    <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-white/[0.035] blur-[120px] rounded-full"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Columna Izquierda: Copy Principal -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-borderSubtle bg-surface text-[11px] font-mono text-zinc-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            SISTEMA DE MONETIZACIÓN & ESCALA // +1.5M AUDIENCIA
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-tight text-white leading-[1.08]">
+            Encuentra tus <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-500">ángulos ganadores</span> y monetiza tu atención sin esclavizarte al algoritmo.
+          </h1>
+
+          <p class="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-2xl font-normal">
+            Para lograr calidad real, primero dominamos la <strong class="text-zinc-200 font-medium">cantidad y el testeo</strong>. Nosotros ejecutamos todo tu volumen de edición para que <strong class="text-zinc-200 font-medium">recuperes tu tiempo</strong>, te enfoques en estudiar y convertirte en el mejor de tu industria — y nosotros nos acoplamos a ti, nunca tú al algoritmo.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+            <a href="#aplicar" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-obsidian text-sm font-semibold hover:bg-zinc-200 transition-all">
+              <span>Evaluar mi perfil y aplicar</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#ejemplos" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-borderSubtle bg-surface/80 text-zinc-300 text-sm font-medium hover:border-zinc-600 hover:text-white transition-all">
+              <span>Ver ejemplos de edición</span>
+              <span class="font-mono text-xs text-zinc-500">9:16</span>
+            </a>
+          </div>
+
+          <!-- Métricas rápidas estilo Polar -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-borderSubtle/80 max-w-lg">
+            <div>
+              <div class="font-mono text-lg sm:text-xl font-semibold text-white">48–72h</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Entrega por pieza</div>
+            </div>
+            <div>
+              <div class="font-mono text-lg sm:text-xl font-semibold text-white">1er Video</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Prueba sin costo</div>
+            </div>
+            <div>
+              <div class="font-mono text-lg sm:text-xl font-semibold text-white">100%</div>
+              <div class="text-xs text-zinc-500 mt-0.5">Acoplado a tu marca</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Arte Radial Geométrico + Card de Flujo estilo Polar -->
+        <div class="lg:col-span-5">
+          <div class="polar-card rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+            <!-- SVG Radial Geométrico inspirado en Polar.sh -->
+            <div class="flex justify-center items-center py-4 relative">
+              <svg class="w-64 h-64 sm:w-72 sm:h-72 text-zinc-400 animate-spin-slow" viewBox="0 0 300 300" fill="none">
+                <g stroke="currentColor" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="3 5">
+                  <circle cx="150" cy="150" r="135" />
+                  <circle cx="150" cy="150" r="105" />
+                  <circle cx="150" cy="150" r="75" />
+                  <circle cx="150" cy="150" r="45" />
+                </g>
+                <g stroke="url(#radialGrad)" stroke-width="1.2" stroke-dasharray="4 6">
+                  <line x1="150" y1="10" x2="150" y2="290" />
+                  <line x1="10" y1="150" x2="290" y2="150" />
+                  <line x1="51" y1="51" x2="249" y2="249" />
+                  <line x1="249" y1="51" x2="51" y2="249" />
+                  <line x1="80" y1="28" x2="220" y2="272" />
+                  <line x1="220" y1="28" x2="80" y2="272" />
+                  <line x1="28" y1="80" x2="272" y2="220" />
+                  <line x1="272" y1="80" x2="28" y2="220" />
+                </g>
+                <defs>
+                  <radialGradient id="radialGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+                    <stop offset="100%" stop-color="#71717A" stop-opacity="0.05"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+
+              <!-- Núcleo central -->
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="px-4 py-2.5 rounded-xl bg-obsidian/95 border border-zinc-700/80 shadow-2xl text-center">
+                  <div class="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">Motor de Crecimiento</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">Cantidad → Calidad → Ventas</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini tarjetas de estado estilo dashboard Polar -->
+            <div class="mt-4 space-y-2.5 border-t border-borderSubtle pt-5">
+              <div class="flex items-center justify-between text-xs p-2.5 rounded-lg bg-obsidian border border-borderSubtle">
+                <span class="text-zinc-400 font-mono">01. Testeo de Ángulos</span>
+                <span class="text-emerald-400 font-mono text-[11px] bg-emerald-500/10 px-2 py-0.5 rounded">Activo</span>
+              </div>
+              <div class="flex items-center justify-between text-xs p-2.5 rounded-lg bg-obsidian border border-borderSubtle">
+                <span class="text-zinc-400 font-mono">02. Tiempo Recuperado</span>
+                <span class="text-white font-mono text-[11px]">+15 hrs / semana</span>
+              </div>
+              <div class="flex items-center justify-between text-xs p-2.5 rounded-lg bg-obsidian border border-borderSubtle">
+                <span class="text-zinc-400 font-mono">03. Adaptación al Creador</span>
+                <span class="text-zinc-300 font-mono text-[11px]">Sin bailes ni fórmulas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN 01: NUESTRO ENFOQUE (FILOSOFÍA) ==================== -->
+  <section id="enfoque" class="py-20 sm:py-28 border-b border-borderSubtle">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div>
+          <div class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3">01 // NUESTRO ENFOQUE</div>
+          <h2 class="text-2xl sm:text-4xl font-semibold tracking-tight text-white max-w-2xl">
+            No editamos por editar. Construimos el sistema para que monetices y domines tu industria.
+          </h2>
+        </div>
+        <p class="text-sm text-zinc-400 max-w-md leading-relaxed">
+          La mayoría se estanca perfeccionando 1 video al mes mientras pierde oportunidades de venta todos los días. Nosotros invertimos la ecuación.
+        </p>
+      </div>
+
+      <!-- Grid de 3 pilares estilo Polar -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Pilar 1 -->
+        <div class="polar-card rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-zinc-500 px-2.5 py-1 rounded border border-borderSubtle bg-obsidian">01</span>
+              <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-3">
+              Cantidad para llegar a Calidad y Monetización
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              La calidad real nace de los datos, no de suposiciones. Publicamos con volumen estratégico para testear múltiples mensajes, descubrir tus <span class="text-zinc-200">ángulos ganadores</span> y enfocar cada pieza en convertir atención en clientes para tu oferta.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-borderSubtle/70 font-mono text-[11px] text-zinc-500">
+            ENFOQUE: RETENCIÓN + CONVERSIÓN
+          </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="polar-card rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-zinc-500 px-2.5 py-1 rounded border border-borderSubtle bg-obsidian">02</span>
+              <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-3">
+              Recupera tu Tiempo para Ser el Mejor
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Tu ventaja competitiva no está en recortar silencios ni animar subtítulos. Al delegarnos la producción, <span class="text-zinc-200">recuperas decenas de horas</span> para estudiar, mejorar tu servicio, cerrar ventas y convertirte en el referente #1 de tu industria.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-borderSubtle/70 font-mono text-[11px] text-zinc-500">
+            ENFOQUE: MAESTRÍA & FOCO ESTRATÉGICO
+          </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="polar-card rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-mono text-xs text-zinc-500 px-2.5 py-1 rounded border border-borderSubtle bg-obsidian">03</span>
+              <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-3">
+              Nos Acoplamos a Ti, No Tú al Algoritmo
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              No te pedimos actuar como alguien que no eres ni seguir tendencias vacías. Nosotros <span class="text-zinc-200">nos adaptamos a tu forma natural de comunicar</span>, tu ritmo y tu identidad visual para que tu autoridad escale de forma auténtica y sostenible.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-borderSubtle/70 font-mono text-[11px] text-zinc-500">
+            ENFOQUE: IDENTIDAD & AUTORIDAD REAL
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN 02: EJEMPLOS DE MASINNOVACIONES ==================== -->
+  <section id="ejemplos" class="py-20 sm:py-28 border-b border-borderSubtle bg-[#0B0B0E]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <div class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3">02 // ESTÁNDAR VISUAL @MASINNOVACIONES</div>
+          <h2 class="text-2xl sm:text-4xl font-semibold tracking-tight text-white max-w-2xl">
+            Edición cinematográfica probada con +1.5 millones de seguidores.
+          </h2>
+        </div>
+        <p class="text-sm text-zinc-400 max-w-md leading-relaxed">
+          Estos son ejemplos reales del estilo editorial, retención narrativa, colorimetría y subtitulado de alto impacto que aplicamos en tus piezas. Haz clic en cualquier reel para inspeccionar su estructura.
+        </p>
+      </div>
+
+      <!-- Grid de 5 Videos Verticales (9:16) de MasInnovaciones -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5" id="reels-grid">
+        <!-- Se renderizan dinámicamente con JS para permitir vista previa y reproducción de video local -->
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl border border-borderSubtle bg-surface/60 text-xs text-zinc-400">
+        <div class="flex items-center gap-2.5">
+          <span class="px-2 py-0.5 rounded bg-white/10 text-white font-mono text-[10px]">FORMATO</span>
+          <span>Adaptamos la tipografía, color grading y ritmo de corte 100% a la identidad de tu marca personal o empresa.</span>
+        </div>
+        <a href="#aplicar" class="text-white font-medium hover:underline whitespace-nowrap">
+          Quiero este nivel en mi cuenta →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN 03: CÓMO TRABAJAMOS ==================== -->
+  <section id="sistema" class="py-20 sm:py-28 border-b border-borderSubtle">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="mb-14">
+        <div class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3">03 // PROCESO SIN FRICCIÓN</div>
+        <h2 class="text-2xl sm:text-4xl font-semibold tracking-tight text-white max-w-2xl">
+          De tus ideas en crudo a un sistema diario de adquisición.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="polar-card rounded-2xl p-7 relative">
+          <div class="font-mono text-xs text-zinc-400 mb-4">PASO 01 // DIAGNÓSTICO</div>
+          <h3 class="text-lg font-semibold text-white mb-2.5">Auditoría de Ángulos y Oferta</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Revisamos tu perfil actual, tu producto o servicio y definimos los ángulos de comunicación que conectan con compradores reales, no solo con vistas vacías.
+          </p>
+        </div>
+
+        <div class="polar-card rounded-2xl p-7 relative">
+          <div class="font-mono text-xs text-zinc-400 mb-4">PASO 02 // PRODUCCIÓN</div>
+          <h3 class="text-lg font-semibold text-white mb-2.5">Envías tu Crudo, Nosotros Editamos</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Subes tus grabaciones, podcasts o clips rápidos a tu carpeta dedicada. Recibes videos editados en <span class="text-zinc-200">48 a 72 horas</span> con revisiones ilimitadas bajo tu identidad.
+          </p>
+        </div>
+
+        <div class="polar-card rounded-2xl p-7 relative border-zinc-700/80">
+          <div class="font-mono text-xs text-emerald-400 mb-4">PASO 03 // GARANTÍA</div>
+          <h3 class="text-lg font-semibold text-white mb-2.5">Tu Primer Video es Gratis</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Antes de comprometerte a un plan mensual, editamos <span class="text-zinc-200">1 video completo sin costo</span> para que compruebes la calidad y química de trabajo con tus propios ojos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN 04: CUESTIONARIO DE FILTRADO -> WHATSAPP ==================== -->
+  <section id="aplicar" class="py-20 sm:py-28 relative overflow-hidden">
+    <div class="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[680px] h-[300px] bg-white/[0.03] blur-[110px] rounded-full"></div>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center mb-10">
+        <div class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3">04 // APLICACIÓN DIRECTA</div>
+        <h2 class="text-2xl sm:text-4xl font-semibold tracking-tight text-white">
+          Aplica para delegar tu contenido y reclamar tu video de prueba gratis
+        </h2>
+        <p class="text-sm sm:text-base text-zinc-400 mt-3 max-w-xl mx-auto">
+          Responde 4 preguntas rápidas (toma menos de 45 segundos) para evaluar tu perfil y conectarte directamente con nuestro equipo por WhatsApp.
+        </p>
+      </div>
+
+      <!-- Contenedor del Formulario Multi-Paso estilo Polar -->
+      <div class="polar-card rounded-2xl p-6 sm:p-10 shadow-2xl">
+        
+        <!-- Barra de Progreso -->
+        <div id="quiz-header" class="mb-8">
+          <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2.5">
+            <span id="step-label">PASO 01 DE 04</span>
+            <span id="step-percent">25%</span>
+          </div>
+          <div class="w-full h-1 bg-zinc-800 rounded-full overflow-hidden">
+            <div id="progress-bar" class="h-full bg-white transition-all duration-300 rounded-full" style="width: 25%"></div>
+          </div>
+        </div>
+
+        <!-- PASO 1: Datos y Perfil -->
+        <div id="step-1" class="quiz-step space-y-5">
+          <div>
+            <h3 class="text-xl font-semibold text-white">Comencemos con tu perfil</h3>
+            <p class="text-sm text-zinc-400 mt-1">Revisaremos tu cuenta antes de responderte para darte retroalimentación real.</p>
+          </div>
+
+          <div class="space-y-4 pt-2">
+            <div>
+              <label for="input-name" class="block text-xs font-mono text-zinc-400 uppercase mb-2">Tu Nombre o Marca *</label>
+              <input type="text" id="input-name" placeholder="Ej. Carlos Mendoza" class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-borderSubtle text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-white transition-colors" />
+            </div>
+
+            <div>
+              <label for="input-ig" class="block text-xs font-mono text-zinc-400 uppercase mb-2">Tu Instagram o Red Principal *</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-mono text-sm">@</span>
+                <input type="text" id="input-ig" placeholder="tuusuario" class="w-full pl-9 pr-4 py-3.5 rounded-xl bg-obsidian border border-borderSubtle text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-white transition-colors" />
+              </div>
+            </div>
+
+            <p id="error-step-1" class="hidden text-xs text-red-400 font-mono">Por favor completa tu nombre y usuario de Instagram para continuar.</p>
+          </div>
+
+          <div class="pt-4 flex justify-end">
+            <button type="button" onclick="nextStep(1)" class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white text-obsidian text-sm font-semibold hover:bg-zinc-200 transition-all">
+              Continuar →
+            </button>
+          </div>
+        </div>
+
+        <!-- PASO 2: Objetivo Principal -->
+        <div id="step-2" class="quiz-step hidden space-y-5">
+          <div>
+            <h3 class="text-xl font-semibold text-white">¿Cuál es tu prioridad #1 en los próximos 90 días?</h3>
+            <p class="text-sm text-zinc-400 mt-1">Selecciona la opción que mejor define tu enfoque actual.</p>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <button type="button" onclick="selectOption('goal', 'Encontrar ángulos ganadores y monetizar mi oferta', 2)" class="option-btn w-full text-left p-4 rounded-xl bg-obsidian border border-borderSubtle hover:border-zinc-500 transition-all flex items-center justify-between group">
+              <div>
+                <div class="text-sm font-medium text-white group-hover:text-white">Encontrar ángulos ganadores y vender más</div>
+                <div class="text-xs text-zinc-500 mt-0.5">Quiero atraer clientes calificados y monetizar mi audiencia</div>
+              </div>
+              <span class="font-mono text-xs text-zinc-600 group-hover:text-white">A →</span>
+            </button>
+
+            <button type="button" onclick="selectOption('goal', 'Recuperar mi tiempo delegando toda mi edición', 2)" class="option-btn w-full text-left p-4 rounded-xl bg-obsidian border border-borderSubtle hover:border-zinc-500 transition-all flex items-center justify-between group">
+              <div>
+                <div class="text-sm font-medium text-white">Recuperar mi tiempo y enfocarme en mi negocio</div>
+                <div class="text-xs text-zinc-500 mt-0.5">Ya genero ingresos pero editar me quita horas valiosas</div>
+              </div>
+              <span class="font-mono text-xs text-zinc-600 group-hover:text-white">B →</span>
+            </button>
+
+            <button type="button" onclick="selectOption('goal', 'Escalar volumen diario sin perder mi esencia', 2)" class="option-btn w-full text-left p-4 rounded-xl bg-obsidian border border-borderSubtle hover:border-zinc-500 transition-all flex items-center justify-between group">
+              <div>
+                <div class="text-sm font-medium text-white">Escalar volumen diario con estética cinematográfica</div>
+                <div class="text-xs text-zinc-500 mt-0.5">Quiero publicar constante en Reels, TikTok y Shorts</div>
+              </div>
+              <span class="font-mono text-xs text-zinc-600 group-hover:text-white">C →</span>
+            </button>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" onclick="prevStep(2)" class="text-xs font-mono text-zinc-500 hover:text-white transition-colors">← Atrás</button>
+          </div>
+        </div>
+
+        <!-- PASO 3: Cuello de Botella -->
+        <div id="step-3" class="quiz-step hidden space-y-5">
+          <div>
+            <h3 class="text-xl font-semibold text-white">¿Qué es lo que más te frena hoy con tu contenido?</h3>
+            <p class="text-sm text-zinc-400 mt-1">Esto nos ayuda a adaptar nuestro flujo de trabajo a ti.</p>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <button type="button" onclick="selectOption('bottleneck', 'No tengo tiempo para editar ni mantener constancia', 3)" class="option-btn w-full text-left p-4 rounded-xl bg-obsidian border border-borderSubtle hover:border-zinc-500 transition-all flex items-center justify-between group">
+              <span class="text-sm font-medium text-white">No tengo tiempo para editar y pierdo constancia</span>
+              <span class="font-mono text-xs text-zinc-600 group-hover:text-white">01 →</span>
+            </button>
+
+            <button type="button" onclick="selectOption('bottleneck', 'Publico pero no logro retención ni ángulos que vendan', 3)" class="option-btn w-full text-left p-4 rounded-xl bg-obsidian border border-borderSubtle hover:border-zinc-500 transition-all flex items-center justify-between group">
+              <span class="text-sm font-medium text-white">Publico videos pero falta retención, estética y enfoque de venta</span>
+              <span class="font-mono text-xs text-zinc-600 group-hover:text-white">02 →</span>
+            </button>
+
+            <button type="button" onclick="selectOption('bottleneck', 'Tengo mucho material grabado pero no lo aprovecho', 3)" class="option-btn w-full text-left p-4 rounded-xl bg-obsidian border border-borderSubtle hover:border-zinc-500 transition-all flex items-center justify-between group">
+              <span class="text-sm font-medium text-white">Tengo podcasts, clases o crudos guardados sin exprimir</span>
+              <span class="font-mono text-xs text-zinc-600 group-hover:text-white">03 →</span>
+            </button>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" onclick="prevStep(3)" class="text-xs font-mono text-zinc-500 hover:text-white transition-colors">← Atrás</button>
+          </div>
+        </div>
+
+        <!-- PASO 4: Filtro de Presupuesto (Calificación) -->
+        <div id="step-4" class="quiz-step hidden space-y-5">
+          <div>
+            <div class="inline-block font-mono text-[11px] text-zinc-400 bg-obsidian border border-borderSubtle px-2.5 py-1 rounded mb-3">
+              TRANSPARENCIA DE INVERSIÓN
+            </div>
+            <h3 class="text-xl font-semibold text-white leading-snug">
+              Nuestros planes de edición ilimitada comienzan en <span class="underline decoration-zinc-500 underline-offset-4">$169 USD/mes</span> (incluyendo auditoría inicial y tu primer video de prueba gratis).
+            </h3>
+            <p class="text-sm text-zinc-400 mt-2">
+              ¿Cuentas con este presupuesto disponible para delegar tu edición e impulsar tu monetización hoy?
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <button type="button" onclick="finishQuiz(true)" class="w-full text-left p-4 sm:p-5 rounded-xl bg-white text-obsidian hover:bg-zinc-200 transition-all flex items-center justify-between">
+              <div>
+                <div class="text-sm sm:text-base font-semibold">Sí, cuento con el presupuesto y quiero empezar</div>
+                <div class="text-xs text-zinc-700 mt-0.5">Continuar a WhatsApp directo para reclamar mi primer video gratis</div>
+              </div>
+              <span class="font-mono text-xs font-bold">SÍ →</span>
+            </button>
+
+            <button type="button" onclick="finishQuiz(false)" class="w-full text-left p-4 rounded-xl bg-obsidian border border-borderSubtle hover:border-zinc-600 transition-all flex items-center justify-between text-zinc-300">
+              <div>
+                <div class="text-sm font-medium">Aún no cuento con ese presupuesto por ahora</div>
+                <div class="text-xs text-zinc-500 mt-0.5">Prefiero seguir aprendiendo con el contenido gratuito</div>
+              </div>
+              <span class="font-mono text-xs text-zinc-500">NO →</span>
+            </button>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" onclick="prevStep(4)" class="text-xs font-mono text-zinc-500 hover:text-white transition-colors">← Atrás</button>
+          </div>
+        </div>
+
+        <!-- RESULTADO A: PROSPECTO CALIFICADO -> WHATSAPP DIRECTO -->
+        <div id="result-qualified" class="hidden text-center py-4 space-y-6">
+          <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+
+          <div class="space-y-2">
+            <div class="font-mono text-xs text-emerald-400 uppercase tracking-widest">PERFIL CALIFICADO // CUPÓN ACTIVADO</div>
+            <h3 class="text-2xl sm:text-3xl font-semibold text-white">
+              ¡Excelente, <span id="qualified-name">creador</span>! Tu perfil aplica para el programa.
+            </h3>
+            <p class="text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
+              Haz clic en el botón de abajo para enviarnos tu resumen directo por WhatsApp, auditar <span id="qualified-ig" class="text-white font-mono">@tuusuario</span> y coordinar tu <strong class="text-white">primer video editado gratis</strong>.
+            </p>
+          </div>
+
+          <div class="pt-2">
+            <a id="whatsapp-cta" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-full bg-[#25D366] text-obsidian font-semibold text-sm sm:text-base hover:brightness-110 transition-all shadow-[0_0_30px_rgba(37,211,102,0.25)]">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+              <span>Continuar a WhatsApp Directo</span>
+            </a>
+          </div>
+
+          <div class="pt-2">
+            <button type="button" onclick="resetQuiz()" class="text-xs font-mono text-zinc-500 hover:text-zinc-300 underline">
+              Editar mis respuestas
+            </button>
+          </div>
+        </div>
+
+        <!-- RESULTADO B: NO CALIFICA POR PRESUPUESTO AÚN -> NUTRICIÓN EN INSTAGRAM -->
+        <div id="result-nurture" class="hidden text-center py-4 space-y-6">
+          <div class="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 flex items-center justify-center mx-auto font-mono text-sm">
+            +I
+          </div>
+
+          <div class="space-y-2">
+            <div class="font-mono text-xs text-zinc-400 uppercase tracking-widest">RECURSOS GRATUITOS</div>
+            <h3 class="text-2xl font-semibold text-white">
+              Gracias por tu sinceridad, <span id="nurture-name">creador</span>.
+            </h3>
+            <p class="text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
+              Por ahora nuestros planes personalizados requieren una inversión mínima de $169 USD/mes. Te invitamos a seguir nuestras estrategias gratuitas de crecimiento y mentalidad en <strong class="text-white">@masinnovaciones</strong> hasta que estés listo para escalar.
+            </p>
+          </div>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="https://www.instagram.com/masinnovaciones" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white text-obsidian text-sm font-semibold hover:bg-zinc-200 transition-all">
+              Ir a @masinnovaciones en Instagram →
+            </a>
+            <button type="button" onclick="resetQuiz()" class="text-xs font-mono text-zinc-500 hover:text-zinc-300 px-4 py-2">
+              Volver al cuestionario
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MODAL DE INSPECCIÓN DE REEL ==================== -->
+  <div id="reel-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4" onclick="closeReelModal(event)">
+    <div class="polar-card rounded-2xl max-w-3xl w-full overflow-hidden grid grid-cols-1 md:grid-cols-12 shadow-2xl" onclick="event.stopPropagation()">
+      
+      <!-- Columna Video / Vista Previa 9:16 -->
+      <div class="md:col-span-6 bg-black relative flex items-center justify-center min-h-[420px] sm:min-h-[480px] border-b md:border-b-0 md:border-r border-borderSubtle">
+        <video id="modal-video" class="w-full h-full object-cover max-h-[540px]" controls playsinline loop></video>
+        
+        <!-- Fallback visual si el archivo .mp4 local aún no está en la carpeta -->
+        <div id="modal-fallback" class="hidden absolute inset-0 flex flex-col justify-between p-6 text-center bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
+          <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+            <span>@masinnovaciones</span>
+            <span class="px-2 py-0.5 rounded bg-white/10 text-white">9:16 HD</span>
+          </div>
+          <div class="my-auto space-y-4 px-2">
+            <p id="modal-fallback-quote" class="font-serif italic text-2xl sm:text-3xl text-white leading-snug"></p>
+            <p id="modal-fallback-en" class="text-xs text-zinc-400 font-sans"></p>
+          </div>
+          <div class="space-y-2">
+            <div class="font-mono text-xs tracking-widest text-white font-semibold">+INNOVACION</div>
+            <div class="text-[10px] font-mono text-zinc-500">Archivo vinculado: <span id="modal-file-name" class="text-zinc-300"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Desglose Estratégico -->
+      <div class="md:col-span-6 p-6 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span id="modal-badge" class="font-mono text-[11px] text-zinc-400 px-2.5 py-1 rounded border border-borderSubtle bg-obsidian">REEL 01</span>
+            <button type="button" onclick="closeReelModal()" class="text-zinc-400 hover:text-white p-1">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+
+          <h3 id="modal-title" class="text-xl font-semibold text-white mb-2"></h3>
+          <p id="modal-desc" class="text-sm text-zinc-400 leading-relaxed mb-6"></p>
+
+          <div class="space-y-3 border-t border-borderSubtle pt-5">
+            <div class="text-xs font-mono text-zinc-500 uppercase">Anatomía de Retención:</div>
+            <ul id="modal-bullets" class="space-y-2.5 text-xs text-zinc-300"></ul>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-borderSubtle">
+          <a href="#aplicar" onclick="closeReelModal()" class="w-full inline-flex items-center justify-center px-5 py-3 rounded-full bg-white text-obsidian text-xs font-semibold hover:bg-zinc-200 transition-all">
+            Quiero este estilo en mis videos →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER MINIMALISTA ESTILO POLAR ==================== -->
+  <footer class="border-t border-borderSubtle py-12 bg-obsidian">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 rounded bg-white text-obsidian flex items-center justify-center font-mono font-bold text-xs">+C</div>
+        <span class="text-sm font-semibold text-white">MasContenido</span>
+        <span class="text-xs font-mono text-zinc-600">//</span>
+        <span class="text-xs font-mono text-zinc-400">MASINNOVACIONES</span>
+      </div>
+
+      <div class="text-xs text-zinc-500 font-mono">
+        © 2026 MASINNOVACIONES. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LÓGICA INTERACTIVA & CONFIGURACIÓN DE WHATSAPP ==================== -->
+  <script>
+    /**
+     * ============================================================================
+     * CONFIGURACIÓN DE TU NÚMERO DE WHATSAPP DIRECTO
+     * ============================================================================
+     * Reemplaza el número de abajo con tu número real incluyendo código de país,
+     * sin el símbolo "+" ni espacios. Ejemplo México: "5214441234567"
+     */
+    const WHATSAPP_NUMBER = "5214440000000";
+
+    // Datos de los 5 videos de ejemplo de @masinnovaciones
+    const REEL_EXAMPLES = [
+      {
+        id: "01",
+        file: "video_2.mp4",
+        category: "PODCAST // ENTREVISTA",
+        title: "Gancho Emocional & Contraste",
+        quote: "“¿Cuál es el peor consejo que has escuchado o recibido?”",
+        subEn: "What's the worst advice you've ever heard or received?",
+        accent: "from-amber-500/20 via-zinc-900 to-black",
+        desc: "Edición estilo podcast cinematográfico con subtitulado bilingüe de alto contraste (dorado/blanco) que guía la mirada y multiplica la retención en los primeros 3 segundos.",
+        bullets: [
+          "Subtitulado editorial con jerarquía de color en palabras clave.",
+          "Cortes limpios respetando pausas dramáticas y respiración.",
+          "Color grading cálido con viñeta oscura para enfocar al hablante."
+        ]
+      },
+      {
+        id: "02",
+        file: "video_3.mp4",
+        category: "STORYTELLING // METÁFORA",
+        title: "Narrativa Dinámica de Alto Impacto",
+        quote: "“Hay gente que tiene mucho menos talentos que tú y va a lograr cosas más grandes.”",
+        subEn: "There are people with less talent who will achieve bigger things.",
+        accent: "from-cyan-500/20 via-zinc-900 to-black",
+        desc: "Ideal para creadores y líderes que explican conceptos complejos con historias. Mantenemos el ritmo vivo sin saturar de efectos baratos.",
+        bullets: [
+          "Tipografía serif editorial de alta legibilidad en móviles.",
+          "Diseño sonoro sutil que acompaña el clímax de la historia.",
+          "Marca de agua limpia @masinnovaciones + cierre institucional."
+        ]
+      },
+      {
+        id: "03",
+        file: "video_4.mp4",
+        category: "AUTORIDAD // REFLEXIÓN",
+        title: "Estética Minimalista de Confianza",
+        quote: "“No nos detenemos lo suficiente a valorar lo que tenemos.”",
+        subEn: "We don't spend enough time appreciating what we have.",
+        accent: "from-emerald-500/15 via-zinc-900 to-black",
+        desc: "Cuando tu mensaje es profundo, la edición debe elevar tu autoridad sin distraer. Perfecto para posicionarte como el referente #1 de tu nicho.",
+        bullets: [
+          "Ritmo pausado e intencional que genera conexión profunda.",
+          "Transiciones invisibles y encuadre centrado.",
+          "Optimizado para guardados y compartidos en DM."
+        ]
+      },
+      {
+        id: "04",
+        file: "video_5.mp4",
+        category: "PSICOLOGÍA // LÍMITES",
+        title: "Retención por Verdad Incómoda",
+        quote: "“Puedes darte cuenta de cuánto se quiere una persona por la rapidez con la que se aleja...”",
+        subEn: "You can tell how much someone loves themselves by how quickly they walk away.",
+        accent: "from-rose-500/15 via-zinc-900 to-black",
+        desc: "Estructura diseñada para detener el scroll de inmediato con una afirmación directa y sostener la atención hasta el último segundo.",
+        bullets: [
+          "Apertura directa sin introducciones innecesarias.",
+          "Contraste oscuro en bordes para máxima lectura en cualquier pantalla.",
+          "Cierre limpio con branding +INNOVACION."
+        ]
+      },
+      {
+        id: "05",
+        file: "video_6.mp4",
+        category: "MENTALIDAD // EXPANSIÓN",
+        title: "Formato Conferencia & Clips Largos",
+        quote: "“Crees que la abundancia se trata únicamente de tener mucho dinero...”",
+        subEn: "You think abundance is just about an abundance of money?",
+        accent: "from-orange-500/20 via-zinc-900 to-black",
+        desc: "Extraemos los mejores ángulos ganadores de tus charlas, entrevistas o grabaciones largas y los convertimos en piezas virales listas para monetizar.",
+        bullets: [
+          "Selección quirúrgica de los mejores 45-60 segundos de tu crudo.",
+          "Subtitulado sincronizado al milisegundo.",
+          "Listo para publicar en Instagram Reels, TikTok y YouTube Shorts."
+        ]
+      }
+    ];
+
+    // Renderizar tarjetas de Reels
+    function renderReelsGrid() {
+      const grid = document.getElementById('reels-grid');
+      grid.innerHTML = REEL_EXAMPLES.map((reel, idx) => `
+        <div onclick="openReelModal(${idx})" class="group cursor-pointer rounded-2xl border border-borderSubtle bg-obsidian overflow-hidden hover:border-zinc-500 transition-all flex flex-col">
+          <!-- Marco Vertical 9:16 -->
+          <div class="relative aspect-[9/16] w-full bg-gradient-to-b ${reel.accent} p-4 flex flex-col justify-between overflow-hidden">
+            <!-- Video silencioso en loop si el archivo está presente -->
+            <video src="${reel.file}" muted loop playsinline preload="metadata"
+              onloadeddata="this.classList.remove('hidden')"
+              onerror="this.classList.add('hidden')"
+              class="hidden absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"></video>
+
+            <!-- Capa de oscurecimiento sutil para legibilidad -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/50 pointer-events-none"></div>
+
+            <!-- Top bar del reel -->
+            <div class="relative z-10 flex items-center justify-between text-[10px] font-mono text-zinc-300">
+              <span class="px-2 py-0.5 rounded bg-black/60 border border-white/10 backdrop-blur-sm">REEL ${reel.id}</span>
+              <span class="text-zinc-400">@masinnovaciones</span>
+            </div>
+
+            <!-- Frase central estilo subtítulo editorial -->
+            <div class="relative z-10 my-auto text-center px-1">
+              <p class="font-serif italic text-lg sm:text-xl text-white leading-snug drop-shadow">
+                ${reel.quote}
+              </p>
+              <p class="text-[10px] text-zinc-400 mt-1.5 line-clamp-2">${reel.subEn}</p>
+            </div>
+
+            <!-- Bottom bar + botón play -->
+            <div class="relative z-10 flex items-center justify-between pt-2 border-t border-white/10">
+              <span class="font-mono text-[10px] tracking-widest text-zinc-300">+INNOVACION</span>
+              <span class="w-7 h-7 rounded-full bg-white text-obsidian flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg class="w-3.5 h-3.5 ml-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Pie de tarjeta -->
+          <div class="p-3.5 bg-surface border-t border-borderSubtle">
+            <div class="font-mono text-[10px] text-zinc-500">${reel.category}</div>
+            <div class="text-xs font-medium text-zinc-200 mt-0.5 truncate">${reel.title}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Modal de inspección de Reel
+    function openReelModal(index) {
+      const reel = REEL_EXAMPLES[index];
+      const modal = document.getElementById('reel-modal');
+      const video = document.getElementById('modal-video');
+      const fallback = document.getElementById('modal-fallback');
+
+      document.getElementById('modal-badge').textContent = `REEL ${reel.id} // ${reel.category}`;
+      document.getElementById('modal-title').textContent = reel.title;
+      document.getElementById('modal-desc').textContent = reel.desc;
+      document.getElementById('modal-fallback-quote').textContent = reel.quote;
+      document.getElementById('modal-fallback-en').textContent = reel.subEn;
+      document.getElementById('modal-file-name').textContent = reel.file;
+
+      document.getElementById('modal-bullets').innerHTML = reel.bullets.map(b => `
+        <li class="flex items-start gap-2">
+          <span class="text-emerald-400 font-mono mt-0.5">✓</span>
+          <span>${b}</span>
+        </li>
+      `).join('');
+
+      // Intentar cargar el video local; si no existe aún en la carpeta, mostrar vista editorial
+      fallback.classList.add('hidden');
+      video.classList.remove('hidden');
+      video.src = reel.file;
+      video.onerror = () => {
+        video.classList.add('hidden');
+        fallback.classList.remove('hidden');
+      };
+      video.play().catch(() => {});
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeReelModal(e) {
+      if (e && e.target !== document.getElementById('reel-modal')) return;
+      const modal = document.getElementById('reel-modal');
+      const video = document.getElementById('modal-video');
+      video.pause();
+      video.src = "";
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Estado del Cuestionario
+    const quizData = {
+      name: '',
+      ig: '',
+      goal: '',
+      bottleneck: ''
+    };
+
+    function updateProgress(step) {
+      const percent = step * 25;
+      document.getElementById('step-label').textContent = `PASO 0${step} DE 04`;
+      document.getElementById('step-percent').textContent = `${percent}%`;
+      document.getElementById('progress-bar').style.width = `${percent}%`;
+    }
+
+    function showStep(stepNumber) {
+      document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+      updateProgress(stepNumber);
+    }
+
+    function nextStep(current) {
+      if (current === 1) {
+        const nameVal = document.getElementById('input-name').value.trim();
+        const igVal = document.getElementById('input-ig').value.trim().replace(/^@+/, '');
+        const errorEl = document.getElementById('error-step-1');
+
+        if (!nameVal || !igVal) {
+          errorEl.classList.remove('hidden');
+          return;
+        }
+        errorEl.classList.add('hidden');
+        quizData.name = nameVal;
+        quizData.ig = igVal;
+        showStep(2);
+      }
+    }
+
+    function prevStep(current) {
+      if (current > 1) {
+        showStep(current - 1);
+      }
+    }
+
+    function selectOption(field, value, currentStep) {
+      quizData[field] = value;
+      showStep(currentStep + 1);
+    }
+
+    function finishQuiz(isQualified) {
+      document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+      document.getElementById('quiz-header').classList.add('hidden');
+
+      if (isQualified) {
+        document.getElementById('qualified-name').textContent = quizData.name;
+        document.getElementById('qualified-ig').textContent = `@${quizData.ig}`;
+
+        // Mensaje prellenado para WhatsApp directo
+        const message = [
+          `Hola equipo de MasContenido (+INNOVACIONES), acabo de completar mi aplicación.`,
+          ``,
+          `• Nombre: ${quizData.name}`,
+          `• Instagram: @${quizData.ig}`,
+          `• Objetivo principal: ${quizData.goal}`,
+          `• Reto actual: ${quizData.bottleneck}`,
+          `• Presupuesto: Confirmado ($169+ USD/mes)`,
+          ``,
+          `Quiero auditar mi perfil y reclamar mi primer video editado gratis.`
+        ].join('\n');
+
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        document.getElementById('whatsapp-cta').href = waUrl;
+        document.getElementById('result-qualified').classList.remove('hidden');
+      } else {
+        document.getElementById('nurture-name').textContent = quizData.name;
+        document.getElementById('result-nurture').classList.remove('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      document.getElementById('result-qualified').classList.add('hidden');
+      document.getElementById('result-nurture').classList.add('hidden');
+      document.getElementById('quiz-header').classList.remove('hidden');
+      showStep(1);
+    }
+
+    // Inicializar galería al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+      renderReelsGrid();
+    });
+  </script>
+</body>
+</html>
