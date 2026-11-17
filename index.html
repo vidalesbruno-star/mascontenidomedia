@@ -363,7 +363,8 @@
           </div>
         </div>
 
-        <form id="qualification-form" onsubmit="return false;">
+        <form id="qualification-form" name="aplicaciones-contenido" method="POST" data-netlify="true" onsubmit="return false;">
+          <input type="hidden" name="form-name" value="aplicaciones-contenido" />
           
           <!-- Step 1: Channel / Profile -->
           <div class="form-step space-y-6" data-step="1">
@@ -374,7 +375,7 @@
               <p class="text-xs text-polar-muted mb-4">
                 Lo revisaremos antes del Meet para identificar oportunidades reales de recorte y monetización en tu contenido largo.
               </p>
-              <input type="text" id="ig-handle" placeholder="@tuusuario o enlace de YouTube/Spotify" required
+              <input type="text" id="ig-handle" name="perfil" placeholder="@tuusuario o enlace de YouTube/Spotify" required
                 class="w-full px-4 py-3.5 rounded-xl bg-polar-bg border border-polar-border text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors font-mono text-sm" />
             </div>
             <div class="flex justify-end">
@@ -617,6 +618,20 @@
       const source = document.querySelector('input[name="source"]:checked')?.value || '';
       const volume = document.querySelector('input[name="volume"]:checked')?.value || '';
       const budget = document.querySelector('input[name="budget"]:checked')?.value || 'unqualified';
+
+      // Enviar datos silenciosamente a Netlify Forms
+      const formData = new URLSearchParams();
+      formData.append('form-name', 'aplicaciones-contenido');
+      formData.append('perfil', handleRaw);
+      formData.append('source', source);
+      formData.append('volume', volume);
+      formData.append('budget', budget);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
+      }).catch(() => {});
 
       document.querySelectorAll('.form-step').forEach(el => el.classList.add('hidden'));
       document.getElementById('step-label').textContent = 'COMPLETADO';
